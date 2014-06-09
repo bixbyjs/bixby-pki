@@ -25,6 +25,7 @@
   ],
   "main": "./lib",
   "dependencies": {
+    "sks": "git://github.com/jaredhanson/node-sks.git"
   },
   "devDependencies": {
     "mocha": "1.x.x",
