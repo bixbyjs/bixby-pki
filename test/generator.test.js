@@ -10,7 +10,7 @@ describe('bixby-pki/generator', function() {
 
   it('should generate', function(done) {
     var factory = pkg('generator');
-    var gen = factory({get:function(){}});
+    var gen = factory({get:function(){}},console);
     gen(function(err,pair){
       expect(err).to.not.exist;
       expect(pair).to.be.an('object');
@@ -24,7 +24,7 @@ describe('bixby-pki/generator', function() {
 
   it('should config hourly kids', function(done) {
     var factory = pkg('generator');
-    var gen = factory({get:function(){return {naming:'hour'};}});
+    var gen = factory({get:function(){return {naming:'hour'};}},console);
     gen(function(err,pair){
       expect(err).to.not.exist;
       expect(pair.kid.length).to.be.equal(11);
@@ -34,7 +34,7 @@ describe('bixby-pki/generator', function() {
 
   it('should config epoch kids', function(done) {
     var factory = pkg('generator');
-    var gen = factory({get:function(){return {naming:'epoch'};}});
+    var gen = factory({get:function(){return {naming:'epoch'};}},console);
     gen(function(err,pair){
       expect(err).to.not.exist;
       expect(pair.kid.length).to.be.equal(10);
