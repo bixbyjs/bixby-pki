@@ -1,6 +1,6 @@
 {
   "name": "bixby-pki",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "PKI components for the Bixby framework.",
   "keywords": [
     "pki"
@@ -25,6 +25,7 @@
   ],
   "main": "./lib",
   "dependencies": {
+    "akeypair": "~0.1.0",
     "sks": "git://github.com/jaredhanson/node-sks.git"
   },
   "devDependencies": {

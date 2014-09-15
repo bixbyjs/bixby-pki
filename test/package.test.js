@@ -5,7 +5,7 @@ var pkg = require('..');
 describe('bixby-pki', function() {
   
   it('should export object', function() {
-    expect(pkg).to.be.an('object');
+    expect(pkg).to.be.a('function');
   });
   
 });
