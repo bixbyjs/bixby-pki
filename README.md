@@ -23,6 +23,7 @@ IoC.loader('pki', require('bixby-pki'));
 
   - [Generator](#generator)
   - [Key Store](#keystore)
+  - [Rotator](#rotator)
 
 #### Generator
 
@@ -101,6 +102,14 @@ In clustered environments, where multiple processes on separate systems need
 access to a shared key store, the file system must be a shared file system
 mounted an by all systems requiring access.  Alternatively, a backend designed
 for shared network access can be used.
+
+#### Rotator
+
+```javascript
+exports['@require'] = [ 'pki/rotator' ];
+```
+
+The rotator component rotates keys on a periodic basis.
 
 ## Tests
 
