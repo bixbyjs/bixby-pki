@@ -36,13 +36,25 @@ default it will generate RSA key pairs with a key size of 2048 bits, using
 to use native bindings when possible, falling back to pure JavaScript, for
 optimum performance.
 
-##### Key Identifiers
+###### RSA
+
+The following settings are supported for RSA keys:
+
+  - `{number} [bits]` - key size in bits
+  
+```toml
+[pki]
+type = "rsa"
+bits = 1024
+```
+
+###### Key Identifiers
 
 Generated keys will be assigned an identifier, which can be used to find a
 specific key pair in situations when multiple pairs are in use.  The naming
 format defaults to `day`, and can be changed by `naming` setting.
 
-```
+```toml
 [pki.self]
 naming = "hour"
 ```
@@ -68,7 +80,6 @@ Support for storage backends is pluggable, allowing engineering teams to
 choose the backend that best meets their requirements.  The type of backend to
 use is determined via configuration settings.
 
-
 ###### File System
 
 The file system can be used as a key store by specifying `fs` as the value
@@ -76,7 +87,7 @@ for `keystore` in the `[pki]` settings block.  The `KeyStore` instance will be
 constructed using the `FSKeyStore` class from the [sks](https://github.com/jaredhanson/node-sks)
 module.  The directory in which keys will be stored is set by `path`.
 
-```
+```toml
 [pki]
 keystore = "fs"
 path = "/var/opt/acme-inc/keys/aaa"
