@@ -2,6 +2,7 @@
 
 var pkg = require('..');
 var sks = require('sks');
+var MockLogger = require('mock-common').Logger;
 
 describe('bixby-pki/rotator', function() {
   
@@ -13,7 +14,7 @@ describe('bixby-pki/rotator', function() {
     var factory = pkg('rotator');
     var store = new sks.MemoryKeyStore();
     var config = {get:function(){}};
-    var logger = console;
+    var logger = new MockLogger();
     var generator = pkg('generator')(config,logger);
     var rotator = factory(generator, store, config, logger);
     expect(rotator).to.be.an('object');
@@ -35,7 +36,7 @@ describe('bixby-pki/rotator', function() {
     var tmp = '/tmp/bixby-test/'+Math.random();
     var store = new sks.FSKeyStore(tmp);
     var config = {get:function(){}};
-    var logger = console;
+    var logger = new MockLogger();
     var generator = pkg('generator')(config,logger);
     var rotator = factory(generator, store, config, logger);
     expect(rotator).to.be.an('object');

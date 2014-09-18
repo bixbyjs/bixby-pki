@@ -1,6 +1,7 @@
 /* global describe, it, expect */
 
 var pkg = require('..');
+var MockLogger = require('mock-common').Logger;
 
 describe('bixby-pki/generator', function() {
   
@@ -10,7 +11,7 @@ describe('bixby-pki/generator', function() {
 
   it('should generate', function(done) {
     var factory = pkg('generator');
-    var gen = factory({get:function(){}},console);
+    var gen = factory({get:function(){}},new MockLogger());
     gen(function(err,kid,key,cert){
       expect(err).to.not.exist;
       expect(cert).to.be.a('string');
@@ -23,7 +24,7 @@ describe('bixby-pki/generator', function() {
 
   it('should config hourly kids', function(done) {
     var factory = pkg('generator');
-    var gen = factory({get:function(){return {naming:'hour'};}},console);
+    var gen = factory({get:function(){return {naming:'hour'};}},new MockLogger());
     gen(function(err,kid,key,cert){
       expect(err).to.not.exist;
       expect(kid.length).to.be.equal(11);
@@ -33,7 +34,7 @@ describe('bixby-pki/generator', function() {
 
   it('should config epoch kids', function(done) {
     var factory = pkg('generator');
-    var gen = factory({get:function(){return {naming:'epoch'};}},console);
+    var gen = factory({get:function(){return {naming:'epoch'};}},new MockLogger());
     gen(function(err,kid,key,cert){
       expect(err).to.not.exist;
       expect(kid.length).to.be.equal(10);
