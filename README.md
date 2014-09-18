@@ -21,7 +21,21 @@ IoC.loader('pki', require('bixby-pki'));
 
 ### Components
 
+  - [Generator](#generator)
   - [Key Store](#keystore)
+
+#### Generator
+
+```javascript
+exports['@require'] = [ 'pki/generator' ];
+```
+
+The generator component is used to generate public/private key pairs.  By
+default it will generate RSA key pairs with a key size of 2048 bits, using
+[`akeypair`](https://github.com/quartzjer/akeypair).  `akeypair` will attempt
+to use native bindings when possible, falling back to pure JavaScript, for
+optimum performance.
+
 
 #### Key Store
 
