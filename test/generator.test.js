@@ -11,13 +11,12 @@ describe('bixby-pki/generator', function() {
   it('should generate', function(done) {
     var factory = pkg('generator');
     var gen = factory({get:function(){}},console);
-    gen(function(err,pair){
+    gen(function(err,kid,key,cert){
       expect(err).to.not.exist;
-      expect(pair).to.be.an('object');
-      expect(pair.public).to.be.a('string');
-      expect(pair.private).to.be.a('string');
-      expect(pair.kid).to.be.a('string');
-      expect(pair.kid.length).to.be.equal(8);
+      expect(cert).to.be.a('string');
+      expect(key).to.be.a('string');
+      expect(kid).to.be.a('string');
+      expect(kid.length).to.be.equal(8);
       done();
     });
   });
@@ -25,9 +24,9 @@ describe('bixby-pki/generator', function() {
   it('should config hourly kids', function(done) {
     var factory = pkg('generator');
     var gen = factory({get:function(){return {naming:'hour'};}},console);
-    gen(function(err,pair){
+    gen(function(err,kid,key,cert){
       expect(err).to.not.exist;
-      expect(pair.kid.length).to.be.equal(11);
+      expect(kid.length).to.be.equal(11);
       done();
     });
   });
@@ -35,9 +34,9 @@ describe('bixby-pki/generator', function() {
   it('should config epoch kids', function(done) {
     var factory = pkg('generator');
     var gen = factory({get:function(){return {naming:'epoch'};}},console);
-    gen(function(err,pair){
+    gen(function(err,kid,key,cert){
       expect(err).to.not.exist;
-      expect(pair.kid.length).to.be.equal(10);
+      expect(kid.length).to.be.equal(10);
       done();
     });
   });

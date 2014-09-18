@@ -36,6 +36,24 @@ default it will generate RSA key pairs with a key size of 2048 bits, using
 to use native bindings when possible, falling back to pure JavaScript, for
 optimum performance.
 
+##### Key Identifiers
+
+Generated keys will be assigned an identifier, which can be used to find a
+specific key pair in situations when multiple pairs are in use.  The naming
+format defaults to `day`, and can be changed by `naming` setting.
+
+```
+[pki.self]
+naming = "hour"
+```
+
+Possible values and the resulting identifiers are:
+
+  - `day` - 20140918
+  - `hour` - 20140918T19
+  - `minute` - 20140918T1909
+  - `second` - 20140918T191042
+  - `epoch` - 1411067129
 
 #### Key Store
 
@@ -49,6 +67,7 @@ optionally the corresponding public keys.
 Support for storage backends is pluggable, allowing engineering teams to
 choose the backend that best meets their requirements.  The type of backend to
 use is determined via configuration settings.
+
 
 ###### File System
 
