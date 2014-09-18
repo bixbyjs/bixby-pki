@@ -109,7 +109,22 @@ for shared network access can be used.
 exports['@require'] = [ 'pki/rotator' ];
 ```
 
-The rotator component rotates keys on a periodic basis.
+The rotator component rotates keys on a periodic basis, defaulting to once per
+day.  This frequency can be changed by setting `rotate`.
+
+```toml
+[pki]
+naming = "second"
+rotate = 5000
+```
+
+Rotation can be disabled by setting `rotate` to `0`.
+
+```toml
+[pki]
+rotate = 0
+```
+
 
 ## Tests
 
