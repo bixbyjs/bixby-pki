@@ -45,7 +45,7 @@ The following settings are supported for RSA keys:
 ```toml
 [pki]
 type = "rsa"
-bits = 1024
+bits = 4096
 ```
 
 ###### Key Identifiers
