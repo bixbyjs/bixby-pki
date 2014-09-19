@@ -11,7 +11,7 @@ describe('bixby-pki/generator', function() {
 
   it('should generate', function(done) {
     var factory = pkg('generator');
-    var gen = factory({get:function(){}},new MockLogger());
+    var gen = factory({toObject:function(){return {}}},new MockLogger());
     gen(function(err,kid,key,cert){
       expect(err).to.not.exist;
       expect(cert).to.be.a('string');
@@ -24,7 +24,7 @@ describe('bixby-pki/generator', function() {
 
   it('should config hourly kids', function(done) {
     var factory = pkg('generator');
-    var gen = factory({get:function(){return {naming:'hour'};}},new MockLogger());
+    var gen = factory({toObject:function(){return {naming:'hour'};}},new MockLogger());
     gen(function(err,kid,key,cert){
       expect(err).to.not.exist;
       expect(kid.length).to.be.equal(11);
@@ -34,7 +34,7 @@ describe('bixby-pki/generator', function() {
 
   it('should config epoch kids', function(done) {
     var factory = pkg('generator');
-    var gen = factory({get:function(){return {naming:'epoch'};}},new MockLogger());
+    var gen = factory({toObject:function(){return {naming:'epoch'};}},new MockLogger());
     gen(function(err,kid,key,cert){
       expect(err).to.not.exist;
       expect(kid.length).to.be.equal(10);
