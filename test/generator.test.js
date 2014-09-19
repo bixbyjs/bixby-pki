@@ -11,7 +11,7 @@ describe('bixby-pki/generator', function() {
 
   it('should generate', function(done) {
     var factory = pkg('generator');
-    var gen = factory({toObject:function(){}},new MockLogger());
+    var gen = factory({toObject:function(){return {}}},new MockLogger());
     gen(function(err,kid,key,cert){
       expect(err).to.not.exist;
       expect(cert).to.be.a('string');

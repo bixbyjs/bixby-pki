@@ -13,7 +13,7 @@ describe('bixby-pki/rotator', function() {
   it('should start memory rotation', function(done) {
     var factory = pkg('rotator');
     var store = new sks.MemoryKeyStore();
-    var config = {toObject:function(){}};
+    var config = {toObject:function(){return {}}};
     var logger = new MockLogger();
     var generator = pkg('generator')(config,logger);
     var rotator = factory(generator, store, config, logger);
@@ -35,7 +35,7 @@ describe('bixby-pki/rotator', function() {
     var factory = pkg('rotator');
     var tmp = '/tmp/bixby-test/'+Math.random();
     var store = new sks.FSKeyStore(tmp);
-    var config = {toObject:function(){}};
+    var config = {toObject:function(){return {}}};
     var logger = new MockLogger();
     var generator = pkg('generator')(config,logger);
     var rotator = factory(generator, store, config, logger);
