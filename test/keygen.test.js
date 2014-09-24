@@ -3,14 +3,14 @@
 var pkg = require('..');
 var MockLogger = require('mock-common').Logger;
 
-describe('bixby-pki/generator', function() {
+describe('bixby-pki/keygen', function() {
   
   it('should export function', function() {
-    expect(pkg('generator')).to.be.a('function');
+    expect(pkg('keygen')).to.be.a('function');
   });
 
   it('should generate', function(done) {
-    var factory = pkg('generator');
+    var factory = pkg('keygen');
     var gen = factory({toObject:function(){return {}}},new MockLogger());
     gen(function(err,kid,key,cert){
       expect(err).to.not.exist;
@@ -23,7 +23,7 @@ describe('bixby-pki/generator', function() {
   });
 
   it('should config hourly kids', function(done) {
-    var factory = pkg('generator');
+    var factory = pkg('keygen');
     var gen = factory({toObject:function(){return {naming:'hour'};}},new MockLogger());
     gen(function(err,kid,key,cert){
       expect(err).to.not.exist;
@@ -33,7 +33,7 @@ describe('bixby-pki/generator', function() {
   });
 
   it('should config epoch kids', function(done) {
-    var factory = pkg('generator');
+    var factory = pkg('keygen');
     var gen = factory({toObject:function(){return {naming:'epoch'};}},new MockLogger());
     gen(function(err,kid,key,cert){
       expect(err).to.not.exist;

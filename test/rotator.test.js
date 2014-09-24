@@ -15,8 +15,8 @@ describe('bixby-pki/rotator', function() {
     var store = new sks.MemoryKeyStore();
     var config = {toObject:function(){return {}}};
     var logger = new MockLogger();
-    var generator = pkg('generator')(config,logger);
-    var rotator = factory(generator, store, config, logger);
+    var keygen = pkg('keygen')(config,logger);
+    var rotator = factory(keygen, store, config, logger);
     expect(rotator).to.be.an('object');
     expect(rotator.start).to.be.a('function');
     rotator.start(function(err){
@@ -37,8 +37,8 @@ describe('bixby-pki/rotator', function() {
     var store = new sks.FSKeyStore(tmp);
     var config = {toObject:function(){return {}}};
     var logger = new MockLogger();
-    var generator = pkg('generator')(config,logger);
-    var rotator = factory(generator, store, config, logger);
+    var keygen = pkg('keygen')(config,logger);
+    var rotator = factory(keygen, store, config, logger);
     expect(rotator).to.be.an('object');
     expect(rotator.start).to.be.a('function');
     rotator.start(function(err){
