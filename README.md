@@ -19,7 +19,31 @@ namespace for these components is `pki`.
 IoC.loader('pki', require('bixby-pki'));
 ```
 
-### Components
+In many situations, you will want multiple PKI components for distinct purposes.
+For example, you may want to use one set of keys for signing and another for
+encryption.
+
+It this case, this suite of components can be used multiple times under
+different namespaces.
+
+```javascript
+IoC.loader('pki/sign', require('bixby-pki'));
+IoC.loader('pki/encrypt', require('bixby-pki'));
+```
+
+Settings will be configured under corresponding namespaces.
+
+```toml
+[pki.sign]
+# signing-related setting go here
+
+[pki.encrypt]
+# encryption-related settings go here
+```
+
+### Table of Contents
+
+##### Components
 
   - [Generator](#generator)
   - [Key Store](#keystore)
@@ -56,7 +80,7 @@ specific key pair in situations when multiple pairs are in use.  The naming
 format defaults to `day`, and can be changed by `naming` setting.
 
 ```toml
-[pki.self]
+[pki]
 naming = "hour"
 ```
 
