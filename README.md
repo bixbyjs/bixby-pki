@@ -108,7 +108,7 @@ use is determined via configuration settings.
 ###### File System
 
 The file system can be used as a key store by specifying `fs` as the value
-for `keystore` in the `[pki]` settings block.  The `KeyStore` instance will be
+for `keystore` in the `[pki]` section.  The `KeyStore` instance will be
 constructed using the `FSKeyStore` class from the [sks](https://github.com/jaredhanson/node-sks)
 module.  The directory in which keys will be stored is set by `path`.
 
@@ -124,7 +124,7 @@ accomplished by setting the appropriate permissions.
 
 In clustered environments, where multiple processes on separate systems need
 access to a shared key store, the file system must be a shared file system
-mounted an by all systems requiring access.  Alternatively, a backend designed
+mounted by all systems requiring access.  Alternatively, a backend designed
 for shared network access can be used.
 
 #### Rotator
