@@ -35,7 +35,7 @@ Settings will be configured under corresponding namespaces.
 
 ```toml
 [pki.sign]
-# signing-related setting go here
+# signing-related settings go here
 
 [pki.encrypt]
 # encryption-related settings go here
