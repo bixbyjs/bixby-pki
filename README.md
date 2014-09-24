@@ -45,17 +45,17 @@ Settings will be configured under corresponding namespaces.
 
 ##### Components
 
-  - [Generator](#generator)
+  - [Keygen](#keygen)
   - [Key Store](#keystore)
   - [Rotator](#rotator)
 
-#### Generator
+#### Keygen
 
 ```javascript
-exports['@require'] = [ 'pki/generator' ];
+exports['@require'] = [ 'pki/keygen' ];
 ```
 
-The generator component is used to generate public/private key pairs.  By
+The keygen component is used to generate public/private key pairs.  By
 default it will generate RSA key pairs with a key size of 2048 bits, using
 [`akeypair`](https://github.com/quartzjer/akeypair).  `akeypair` will attempt
 to use native bindings when possible, falling back to pure JavaScript, for
