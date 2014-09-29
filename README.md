@@ -69,7 +69,7 @@ The following settings are supported for RSA keys:
   
 ```toml
 [pki]
-type = "rsa"
+algo = "rsa"
 bits = 4096
 ```
 
