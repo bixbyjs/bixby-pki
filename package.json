@@ -28,7 +28,8 @@
     "pkginfo": "~0.3.0",
     "path-os": "~0.1.0",
     "akeypair": "~0.2.0",
-    "sks": "git://github.com/jaredhanson/node-sks.git"
+    "sks": "git://github.com/jaredhanson/node-sks.git",
+    "bootable": "~0.2.4"
   },
   "devDependencies": {
     "mocha": "1.x.x",
