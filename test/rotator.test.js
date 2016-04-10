@@ -4,7 +4,7 @@ var pkg = require('..');
 var sks = require('sks');
 var MockLogger = require('mock-common').Logger;
 
-describe('bixby-pki/rotator', function() {
+describe.skip('bixby-pki/rotator', function() {
   
   it('should export function', function() {
     expect(pkg('rotator')).to.be.a('function');

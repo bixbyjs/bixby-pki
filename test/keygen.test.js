@@ -3,7 +3,7 @@
 var pkg = require('..');
 var MockLogger = require('mock-common').Logger;
 
-describe('bixby-pki/keygen', function() {
+describe.skip('bixby-pki/keygen', function() {
   
   it('should export function', function() {
     expect(pkg('keygen')).to.be.a('function');
