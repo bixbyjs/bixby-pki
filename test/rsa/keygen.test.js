@@ -1,6 +1,8 @@
 /* global describe, it, expect */
 
+var forge = require('node-forge');
 var factory = require('../../lib/rsa/keygen');
+
 
 describe('rsa/keygen', function() {
   
@@ -17,10 +19,10 @@ describe('rsa/keygen', function() {
       var key, cert;
       
       before(function(done) {
-        keygen({ bits: 1024 }, function(err, _key, _cert) {
+        keygen({ bits: 1024 }, function(err, _pair) {
           if (err) { return done(err); }
-          key = _key;
-          cert = _cert;
+          key = _pair.privateKey;
+          cert = _pair.publicKey;
           done();
         });
       });
@@ -33,6 +35,11 @@ describe('rsa/keygen', function() {
       it('should generate public key', function() {
         expect(cert).to.be.a('string');
         expect(cert.indexOf('-----BEGIN PUBLIC KEY-----')).to.equal(0);
+        
+        //var parsed = forge.pki.publicKeyFromPem(cert);
+        var parsed = forge.asn1.fromDer(cert);
+        console.log(parsed)
+        
       });
     });
   });
