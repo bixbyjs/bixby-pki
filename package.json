@@ -1,7 +1,7 @@
 {
   "name": "bixby-pki",
   "version": "0.0.2",
-  "description": "PKI components of the Bixby framework.",
+  "description": "PKI components for Bixby.js.",
   "keywords": [
     "pki"
   ],
@@ -24,19 +24,19 @@
       "url": "http://opensource.org/licenses/MIT"
     }
   ],
-  "main": "./lib",
+  "main": "./index.js",
   "dependencies": {
-    "pkginfo": "~0.3.0",
-    "path-os": "~0.1.0",
     "akeypair": "~0.2.0",
-    "sks": "git://github.com/jaredhanson/node-sks.git",
-    "bootable": "~0.2.4"
+    "bootable": "~0.2.4",
+    "node-forge": "^0.6.44",
+    "path-os": "~0.1.0",
+    "pkginfo": "~0.3.0",
+    "sks": "git://github.com/jaredhanson/node-sks.git"
   },
   "devDependencies": {
     "make-node": "0.3.x",
     "mocha": "2.x.x",
-    "chai": "3.x.x",
-    "mock-common": "git://github.com/bixbyjs/mock-common.git"
+    "chai": "3.x.x"
   },
   "engines": {
     "node": "*"
